@@ -21,7 +21,7 @@
 <!--if logged successfuly show success message  -->
 <?php else : ?>
     <div class="alert alert-success" role="alert">
-        <p>Hello <?php echo $_SESSION['LOGGED_USER']; ?> and welcome!</p>
+        <p>Hello <?php echo $_SESSION['LOGGED_USER']['email']; ?> and welcome!</p>
     </div>
 <?php endif ?>
 

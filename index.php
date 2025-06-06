@@ -21,7 +21,7 @@
 
         <?php require_once(__DIR__ . '/login.php'); ?>
 
-        <?php if($_SESSION['LOGGED_USER']): ?>
+        <?php if(isset($_SESSION['LOGGED_USER'])): ?>
             <?php foreach(getRecipes($recipes) as $recipe) : ?>
                 <article>
                     <h3><?php echo $recipe['title']; ?></h3>

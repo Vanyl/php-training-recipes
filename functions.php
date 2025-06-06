@@ -15,12 +15,8 @@ function isValidRecipe(array $recipe): bool
     } else {
         $isEnabled = false;
     }
-
-
     return $isEnabled;
 }
-
-
 function getRecipes(array $recipes): array
 {
     $valid_recipes = [];
@@ -30,4 +26,9 @@ function getRecipes(array $recipes): array
         }
     }
     return $valid_recipes;
+}
+
+function redirectToUrl(string $url): never{
+    header("Location: {$url}");
+    exit();
 }

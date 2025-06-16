@@ -23,15 +23,20 @@
 
         <?php require_once(__DIR__ . '/login.php'); ?>
 
-        <?php if(isset($_SESSION['LOGGED_USER'])): ?>
-            <?php foreach(getRecipes($recipes) as $recipe) : ?>
-                <article>
-                    <h3><?php echo $recipe['title']; ?></h3>
-                    <div><?php echo $recipe['recipe']; ?></div>
-                    <span><?php echo displayAuthor($recipe['author'], $users); ?></span>
-                </article>
-            <?php endforeach ?>
-        <?php endif ?>
+        <?php foreach(getRecipes($recipes) as $recipe) : ?>
+            <article>
+                <h3><?php echo $recipe['title']; ?></h3>
+                <div><?php echo $recipe['recipe']; ?></div>
+                <span><?php echo displayAuthor($recipe['author'], $users); ?></span>
+                <?php if(isset($_SESSION['LOGGED_USER'])): ?>
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item"><a class="link-warning" href="recipes_update.php?id=<?php echo($recipe['recipe_id']); ?>">Edit</a></li>
+                        <li class="list-group-item"><a class="link-danger" href="recipes_delete.php?id=<?php echo($recipe['recipe_id']); ?>">Delete</a></li>
+                    </ul>
+                <?php endif; ?>
+            </article>
+        <?php endforeach ?>
+
     </div>
     <?php require_once(__DIR__ . '/footer.php'); ?>
 </body>

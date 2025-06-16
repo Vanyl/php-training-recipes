@@ -23,9 +23,9 @@ if (isset($postData['email']) && isset($postData['password'])) {
 
         if(!isset($_SESSION['LOGGED_USER'])){
             $_SESSION['LOGIN_ERROR_MESSAGE'] = sprintf(
-                'Aucun utilisateur trouvé avec les informations envoyées : (%s%s)',
+                'Les informations sont erronées : (%s)',
                 $postData['email'],
-                strip_tags($postData['password'])
+
             );
         }
     }
